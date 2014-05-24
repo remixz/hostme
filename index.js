@@ -18,7 +18,7 @@ if (argv.help) return console.log(
 var config = (argv.config || '.hosts');
 var hosts = (argv.hosts || '/etc/hosts');
 
-fs.readFile(__dirname + '/' + config, function (err, data) {
+fs.readFile(process.cwd() + '/' + config, function (err, data) {
     if (err) {
         if (err.code === 'ENOENT') return console.error('Config file (' + config + ') does not exist.');
         else throw err;
